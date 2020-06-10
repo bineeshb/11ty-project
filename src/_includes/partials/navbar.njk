@@ -1,0 +1,56 @@
+{% set menuItems = [
+  {
+    link: '',
+    label: site[locale].labelHome
+  }, {
+    link: 'posts',
+    label: site[locale].labelPosts
+  }, {
+    link: 'about',
+    label: site[locale].labelAbout
+  }
+] %}
+{% macro getLanguageLabel(languageCode) %}
+  {% for language in site.languages %}
+    {% if language.code == languageCode %}{{ language.label }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">11ty-project</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ getLanguageLabel(locale) }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% for language in site.languages %}
+            {% if language.code != locale %}
+              <a class="dropdown-item" href="/{{ language.code }}">{{ language.label }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      {% macro isActive(pageTitle) -%}
+        {% if pageTitle == title %}active{% endif %}
+      {%- endmacro %}
+      {% for item in menuItems %}
+        <li class="nav-item">
+          <a class="nav-link {{ isActive(item.label) }}" href="/{{locale}}/{{ item.link }}">{{ item.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0 ml-5">
+      <input class="form-control mr-sm-2" type="search" placeholder="{{ site[locale].labelSearch }}" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">{{ site[locale].labelSearch }}</button>
+    </form>
+  </div>
+</nav>
