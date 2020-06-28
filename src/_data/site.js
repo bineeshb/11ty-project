@@ -1,4 +1,5 @@
 module.exports = {
+  baseHref: process.env.NODE_ENV === 'production' ? '/11ty-project/' : '/',
   languages: [
     {
       code: 'en',
