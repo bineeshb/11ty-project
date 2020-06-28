@@ -1,3 +1,4 @@
+const htmlmin = require('html-minifier');
 const moment = require('moment');
 
 module.exports = function (eleventyConfig) {
@@ -28,6 +29,20 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection('posts_ml', function (collection) {
     return collection.getFilteredByGlob('./src/ml/posts/*.md');
+  });
+
+  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+    if (outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+
+      return minified;
+    }
+
+    return content;
   });
 
   return {
