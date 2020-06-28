@@ -4,7 +4,7 @@ Multi lingual static site using
 
 - [11ty](https://www.11ty.dev/) for generating static site
   - [11ty tutorials](https://www.11ty.dev/docs/tutorials/)
-  - [11ty i18n](https://www.webstoemp.com/blog/multilingual-sites-eleventy/)
+  - [11ty i18n](https://www.webstoemp.com/blog/multilingual-sites-eleventy/), [eleventy-plugin-i18n](https://github.com/adamduncan/eleventy-plugin-i18n#readme)
 - [Nunjucks](https://mozilla.github.io/nunjucks/) for templates
 - Markdown for page contents
   - [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
