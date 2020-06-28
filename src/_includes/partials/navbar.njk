@@ -1,13 +1,13 @@
 {% set menuItems = [
   {
     link: '',
-    label: site[locale].labelHome
+    label: 'home'
   }, {
     link: 'posts',
-    label: site[locale].labelPosts
+    label: 'posts'
   }, {
     link: 'about',
-    label: site[locale].labelAbout
+    label: 'about'
   }
 ] %}
 {% macro getLanguageLabel(languageCode) %}
@@ -44,13 +44,13 @@
       {%- endmacro %}
       {% for item in menuItems %}
         <li class="nav-item">
-          <a class="nav-link {{ isActive(item.label) }}" href="{{locale}}/{{ item.link }}">{{ item.label }}</a>
+          <a class="nav-link {{ isActive(item.label | i18n) }}" href="{{locale}}/{{ item.link }}">{{ item.label | i18n }}</a>
         </li>
       {% endfor %}
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-5">
-      <input class="form-control mr-sm-2" type="search" placeholder="{{ site[locale].labelSearch }}" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">{{ site[locale].labelSearch }}</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="{{ 'search' | i18n }}" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">{{ 'search' | i18n }}</button>
     </form>
   </div>
 </nav>

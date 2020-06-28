@@ -9,7 +9,7 @@
         <h3>
           <a href="{{ locale }}/posts/{{ post.fileSlug }}/">{{ post.data.title }}</a>
         </h3>
-        <p>{{ site[locale].labelPostedOn }}
+        <p>{{ 'postedOn' | i18n }}
           {{ post.date | date("DD MMMM YYYY", locale) }}</p>
       </li>
     {% endfor %}

@@ -1,5 +1,7 @@
 const htmlmin = require('html-minifier');
+const i18n = require('eleventy-plugin-i18n');
 const moment = require('moment');
+const translations = require('./src/_data/i18n');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets');
@@ -29,6 +31,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection('posts_ml', function (collection) {
     return collection.getFilteredByGlob('./src/ml/posts/*.md');
+  });
+
+  eleventyConfig.addPlugin(i18n, {
+    translations,
+    fallbackLocales: {
+      '*': 'en'
+    }
   });
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {

@@ -4,13 +4,13 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-transparent m-0 pl-0 pt-0">
       <li class="breadcrumb-item">
-        <a href="{{ locale }}/posts">{{ site[locale].labelPosts }}</a>
+        <a href="{{ locale }}/posts">{{ 'posts' | i18n }}</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
     </ol>
   </nav>
   <h1>{{ title }}</h1>
-  <p>{{ site[locale].labelUpdatedOn }}
+  <p>{{ 'updatedOn' | i18n }}
     {{ date | date("DD MMMM YYYY", locale) }}</p>
   {{ content | safe }}
 {% endblock content %}
