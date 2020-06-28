@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy('src/assets');
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter('date', function (date, format, locale) {
