@@ -1,5 +1,4 @@
 ---
-layout: 'layouts/post.njk'
 title: 'पोस्ट २'
 date: '2020-06-07'
 ---

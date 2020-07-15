@@ -1,5 +1,4 @@
 ---
-layout: 'layouts/post.njk'
 title: 'இடுகைகள் 1'
 date: '2020-06-06'
 ---
