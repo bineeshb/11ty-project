@@ -5,6 +5,7 @@ const translations = require('./src/_data/i18n');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets');
+  eleventyConfig.addPassthroughCopy('src/admin');
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter('date', function (date, format, locale) {
