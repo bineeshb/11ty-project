@@ -14,6 +14,6 @@
     "@11ty/eleventy": "^0.11.0",
     "eleventy-plugin-i18n": "^0.1.0",
     "html-minifier": "^4.0.0",
-    "moment": "^2.26.0"
+    "moment": "^2.29.4"
   }
 }
